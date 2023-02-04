@@ -10,7 +10,7 @@ class MimeTypesTest extends TestCase
 	/** @var \Mimey\MimeTypes */
 	protected $mime;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		$this->mime = new MimeTypes([
 			'mimes' => [
@@ -29,7 +29,7 @@ class MimeTypesTest extends TestCase
 		]);
 	}
 
-	public function getMimeTypeProvider()
+	public static function getMimeTypeProvider()
 	{
 		return [
 			['application/json', 'json'],
@@ -48,7 +48,7 @@ class MimeTypesTest extends TestCase
 		$this->assertEquals($expectedMimeType, $this->mime->getMimeType($extension));
 	}
 
-	public function getExtensionProvider()
+	public static function getExtensionProvider()
 	{
 		return [
 			['json', 'application/json'],
@@ -66,7 +66,7 @@ class MimeTypesTest extends TestCase
 		$this->assertEquals($expectedExtension, $this->mime->getExtension($mimeType));
 	}
 
-	public function getAllMimeTypesProvider()
+	public static function getAllMimeTypesProvider()
 	{
 		return [
 			[
@@ -95,7 +95,7 @@ class MimeTypesTest extends TestCase
 		$this->assertEquals($expectedMimeTypes, $this->mime->getAllMimeTypes($extension));
 	}
 
-	public function getAllExtensionsProvider()
+	public static function getAllExtensionsProvider()
 	{
 		return [
 			[
